@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="See the highest and lowest scorers for each school subject." />
+    <title>Student Performance Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main class="dashboard">
+      <section class="panel" aria-labelledby="page-title">
+        <p class="eyebrow">Academic overview</p>
+        <h1 id="page-title">Student Performance Dashboard</h1>
+        <p class="intro">Choose a subject to see its top and bottom scorers.</p>
+
+        <div id="loading" class="status" role="status">Loading student results…</div>
+        <div id="error" class="status error" role="alert" hidden>
+          <p>We couldn’t load the student results. Please check your connection and try again.</p>
+          <button id="retry-button" type="button">Retry</button>
+        </div>
+
+        <div id="dashboard-controls" hidden>
+          <label for="subject-select">Subject</label>
+          <select id="subject-select" name="subject" disabled>
+            <option value="">Select a subject</option>
+          </select>
+        </div>
+
+        <section id="results" class="results" aria-live="polite" aria-atomic="true" hidden>
+          <article class="result-card highest">
+            <p class="card-label">Highest Scorer</p>
+            <div id="highest-result"></div>
+          </article>
+          <article class="result-card lowest">
+            <p class="card-label">Lowest Scorer</p>
+            <div id="lowest-result"></div>
+          </article>
+        </section>
+      </section>
+    </main>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

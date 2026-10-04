@@ -1,0 +1,8 @@
+<!doctype html><meta charset="utf-8"><title>Stats tests</title><script type="module">
+import { getHighest, getLowest } from './js/stats.js';
+const rows = [{"Student Name":"A",Maths:"10"},{"Student Name":"B",Maths:"20"},{"Student Name":"C",Maths:"20"},{"Student Name":"",Maths:"0"},{"Student Name":"D",Maths:"oops"}];
+console.assert(JSON.stringify(getHighest(rows, 'Maths')) === JSON.stringify([{name:'B',marks:20},{name:'C',marks:20}]), 'highest and ties');
+console.assert(JSON.stringify(getLowest(rows, 'Maths')) === JSON.stringify([{name:'A',marks:10}]), 'lowest, blank and non-numeric skipped');
+console.assert(getLowest([], 'Maths').length === 0, 'empty data');
+document.body.textContent = 'All stats assertions passed. Check the browser console for assertion failures.';
+</script>
